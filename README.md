@@ -1,12 +1,12 @@
 ## Ejecuto por comando para armar el arquetipo
-``sh
+```sh
 mvn archetype:generate \
 -DarchetypeGroupId=com.intuit.karate \
 -DarchetypeArtifactId=karate-archetype \
 -DarchetypeVersion=1.1.0 \
 -DgroupId=com.template \
 -DartifactId=karate-api
-``
+```
 
 ## Configuro el reporte de cucumber (Opcional)
 
