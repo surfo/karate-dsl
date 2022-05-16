@@ -117,5 +117,37 @@ scenarios:    2 | passed:     2 | failed: 0
 
 ![figra2](https://user-images.githubusercontent.com/55904664/133254422-6c3b9ad8-55bd-46e4-8dd9-abf380eb3387.png) 
 
+## Version Standalone
+
+El único requisito previo es que Java (solo el entorno de tiempo de ejecución y no el JDK completo) debe estar instalado.
+
+Para probar, escriba esto en una ventana de terminal o consola:
+```sh
+java --version
+```
+Si responde con una versión 1.8 o superior (Java versión 8), ¡ya está todo listo!
+
+Buscar la última versión en [aqui](https://github.com/karatelabs/karate/releases) desplácese hacia abajo para encontrar "Activos". Y busque el archivo que comienza con karate-y tiene una *.zip extensión
+
+### Instalación
+Simplemente extraer el ZIP a cualquier directorio.
+
+### Correr un script
+
+Puede ejecutar comandos desde el terminal o la consola después de cambiar a la raíz de la carpeta creada cuando extrajo el archivo ZIP. 
+
+Ejecutar todo menos el tag
+java -jar karate.jar -t ~@ignore .
 
 
+
+Ejecutar un tag especifico
+java -jar karate.jar -t @tag .
+
+
+
+Ejecutar mas de un tag
+java -jar karate.jar -t @regression,@test .
+
+Ejecutar en un ambiente especifico
+java -jar karate.jar -e desa .
