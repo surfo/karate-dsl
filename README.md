@@ -127,7 +127,7 @@ java --version
 ```
 Si responde con una versión 1.8 o superior (Java versión 8), ¡ya está todo listo!
 
-Buscar la última versión en [aqui](https://github.com/karatelabs/karate/releases) desplácese hacia abajo para encontrar "Activos". Y busque el archivo que comienza con karate-y tiene una *.zip extensión
+Buscar la última versión [aqui](https://github.com/karatelabs/karate/releases) desplácese hacia abajo para encontrar "Activos". Y busque el archivo que comienza con karate-y tiene una *.zip extensión
 
 ### Instalación
 Simplemente extraer el ZIP a cualquier directorio.
