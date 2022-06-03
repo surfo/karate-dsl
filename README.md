@@ -1,7 +1,36 @@
 
-
+## Karate DSL
 
 ![figra1](https://user-images.githubusercontent.com/55904664/133254434-434f31e3-b86c-453a-89cd-61e4db90948d.jpg) 
+
+### DSL(Lenguaje de dominio específico)
+
+Un Lenguaje de dominio específico es un lenguaje de programación con un nivel superior de abstracción optimizado para una clase específica de problemas.
+
+Karate se apoya en la sintaxis Gherkin para escribir sus escenarios.
+
+Patron del lenguaje Gherkin
+- Given 'dado': Cumplo una precondiciòn
+- When 'cuando': Ejecuto una acciòn
+- Then 'entonces': Observo el resultado esperado, las validaciones a realizar
+
+```cucumber
+Feature: Extracciòn de dinero
+
+    Scenario: Como usuario existente y habilitado del cajero,
+                quiero realizar una extracciòn de dinero
+    Given Me autentiquè con una tarjeta habilitada
+    And El saldo disponible en mi cuenta es positivo
+    When Selecciono la opcion de extracciòn
+    And Ingreso la cantidad menor o igual al saldo disponible
+    Then Obtengo el dinero
+    And El dinero que obtuve se resta del saldo disponible de mi cuenta
+```
+
+
+
+
+
 
 ## Feature: Automatizar API's
 
