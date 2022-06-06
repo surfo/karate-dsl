@@ -18,7 +18,7 @@ Patron del lenguaje Gherkin
 Feature: Extracciòn de dinero
 
     Scenario: Como usuario existente y habilitado del cajero,
-                quiero realizar una extracciòn de dinero
+              quiero realizar una extracciòn de dinero
     Given Me autentiquè con una tarjeta habilitada
     And El saldo disponible en mi cuenta es positivo
     When Selecciono la opcion de extracciòn
