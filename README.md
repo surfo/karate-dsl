@@ -222,7 +222,7 @@ Simplemente extraer el ZIP a cualquier directorio.
 
 ### Descargar e instalar visual Studio Code [aqui](https://code.visualstudio.com/Download)
 
-Instalar los complementos Cucumber (Gherkin) full support y Karate Runner
+Instalar los plugins de Cucumber (Gherkin) full support y Karate Runner
 
 
 ### Correr un script
