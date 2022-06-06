@@ -7,31 +7,30 @@
 
 Un Lenguaje de dominio específico es un lenguaje de programación con un nivel superior de abstracción optimizado para una clase específica de problemas.
 
-Karate se apoya en la sintaxis Gherkin para escribir sus escenarios.
-
+cribir sus escenarios.
 
 #### Estructura Gherkin
 - Feature: Especifica una funcionalidad del sistema
-- Scenario: El comportamiento individual para establecer los criterios de aceptaciòn (Se representarian los casos de pruebas de una funcionalidad)
+- Scenario: El comportamiento individual para establecer los criterios de aceptación (Se representarían los casos de pruebas de una funcionalidad)
 
 Para describir los escenarios se utilizan las sentencias de Gherkin: Given, When, Then, And y But
 
-Patron del lenguaje Gherkin
-- Given 'dado': Cumplo una precondiciòn
-- When 'cuando': Ejecuto una acciòn
+Patrón del lenguaje Gherkin
+- Given 'dado': Cumplo una precondición
+- When 'cuando': Ejecuto una acción
 - Then 'entonces': Observo el resultado esperado, las validaciones a realizar
 
 ```cucumber
-Feature: Extracciòn de dinero
+Feature: Extracción de dinero
 
-    Scenario: Como usuario existente y habilitado del cajero,
-              quiero realizar una extracciòn de dinero
-        Given Me autentiquè con una tarjeta habilitada
-        And El saldo disponible en mi cuenta es positivo
-        When Selecciono la opcion de extracciòn
-        And Ingreso la cantidad menor o igual al saldo disponible
-        Then Obtengo el dinero
-        And El dinero que obtuve se resta del saldo disponible de mi cuenta
+Scenario: Como usuario existente y habilitado del cajero,
+quiero realizar una extracción de dinero
+Given Me autentique con una tarjeta habilitada
+And El saldo disponible en mi cuenta es positivo
+When Selecciono la opción de extracción
+And Ingreso la cantidad menor o igual al saldo disponible
+Then Obtengo el dinero
+And El dinero que obtuve se resta del saldo disponible de mi cuenta
 ```
 
 Ejemplo de un feature Karate (con Json nativo)
