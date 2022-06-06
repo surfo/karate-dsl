@@ -7,7 +7,7 @@
 
 Un Lenguaje de dominio específico es un lenguaje de programación con un nivel superior de abstracción optimizado para una clase específica de problemas.
 
-cribir sus escenarios.
+Karate se apoya en la sintaxis Gherkin para escribir sus escenarios.
 
 #### Estructura Gherkin
 - Feature: Especifica una funcionalidad del sistema
@@ -38,57 +38,56 @@ Ejemplo de un feature Karate (con Json nativo)
 ```cucumber
 Feature: simple requests
 
-    Scenario: hago un echo
-        Given url 'https://httpbin.org/anything'
-        And request { myKey: 'Hola' }
-        When method post
-        Then status 200
-        And match response contains { json: { myKey: 'Hola' } }
+Scenario: hago un echo
+Given url 'https://httpbin.org/anything'
+And request { myKey: 'Hola' }
+When method post
+Then status 200
+And match response contains { json: { myKey: 'Hola' } }
 ```
 
-Tambien se utilizan Scenarios Outline, son un tipo de escenario donde se especifican datos de entrada.
+También se utilizan Scenarios Outline, son un tipo de escenario donde se especifican datos de entrada.
 
 ```cucumber
 Scenario outline: Extraer dinero con distintas claves de tarjeta.
-    Given La tarjeta de crédito está habilitada
-    And El saldo disponible en mi cuenta es positivo
-    And El cajero tiene suficiente dinero
-    When Introduzco la tarjeta en el cajero
-    And Ingreso el <pin> de la tarjeta 
+Given La tarjeta de crédito está habilitada
+And El saldo disponible en mi cuenta es positivo
+And El cajero tiene suficiente dinero
+When Introduzco la tarjeta en el cajero
+And Ingreso el <pin> de la tarjeta 
 
-Examples:  
-  | pin | 
-  | 1234 |   
-  | 9876 |  
+Examples: 
+| pin | 
+| 1234 | 
+| 9876 | 
 ```
 
 Ejemplo de un Scenario Outline Karate
 
 ```cucumber
 Scenario Outline: simple sequence desde tabla
-    Given url 'https://httpbin.org/anything'
-    And request { myKey: "<data_Input>" }
-    When method post
-    Then status 200
-    And match response contains { json: { myKey: "<data_Output>" } }
+Given url 'https://httpbin.org/anything'
+And request { myKey: "<data_Input>" }
+When method post
+Then status 200
+And match response contains { json: { myKey: "<data_Output>" } }
 
 Examples:
-| data_Input     |  data_Output  |
-| Buen dia       | Buen dia      |
-| Buenas tardes  | Buenas tardes |
-| Buenas noches  | Buenas noches |
+| data_Input | data_Output |
+| Buen dia | Buen dia |
+| Buenas tardes | Buenas tardes |
+| Buenas noches | Buenas noches |
 ```
 
-### Caracteristicas
+### Características
 
 - No se requiere conocimiento de Java.
 - Es compatible de forma nativa con Json y XML.
-- Los datos de los Scenarios se puede leer desde la seccion Examples del mismo Scenario, Archivo Json o XML.
+- Los datos de los Scenarios se puede leer desde la sección Examples del mismo Scenario, Archivo Json o XML.
 - Validaciones en una sola linea.
 - Validaciones de esquema Json para validar estructuras.
-- Motor JavaScript incorporado que permite crear biblioteas de funciones reutilizables.
-- Informe de pruebas integrado y de facil lectura
-
+- Motor JavaScript incorporado que permite crear bibliotecas de funciones reutilizables.
+- Informe de pruebas integrado y de fácil lectura
 
 ## Empezando
 
