@@ -10,7 +10,7 @@ Un Lenguaje de dominio específico es un lenguaje de programación con un nivel 
 Karate se apoya en la sintaxis Gherkin para escribir sus escenarios.
 
 
-Estructura Gherkin
+#### Estructura Gherkin
 Feature: Especifica una funcionalidad del sistema
 Scenario: El comportamiento individual para establecer los criterios de aceptaciòn (Se representarian los casos de pruebas de una funcionalidad)
 
