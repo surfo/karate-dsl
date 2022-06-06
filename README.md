@@ -34,7 +34,7 @@ Feature: Extracciòn de dinero
     And El dinero que obtuve se resta del saldo disponible de mi cuenta
 ```
 
-Ejemplo de un feature Karate
+Ejemplo de un feature Karate (con Json nativo)
 
 ```cucumber
 Feature: simple requests
@@ -48,17 +48,58 @@ And match response contains { json: { myKey: 'Hola' } }
 
 ```
 
+Tambien se utilizan Scenarios Outline, son un tipo de escenario donde se especifican datos de entrada.
+
+```cucumber
+Scenario outline: Extraer dinero con distintas claves de tarjeta.
+
+Given La tarjeta de crédito está habilitada
+And El saldo disponible en mi cuenta es positivo
+And El cajero tiene suficiente dinero
+When Introduzco la tarjeta en el cajero
+And Ingreso el <pin> de la tarjeta 
+…
+Examples:  
+  | pin | 
+  | 1234 |   
+  | 9876 |  
+```
+
+Ejemplo de un Scenario Outline Karate
+
+```cucumber
+Scenario Outline: simple sequence desde tabla
+    Given url 'https://httpbin.org/anything'
+    And request { myKey: "<data_Input>" }
+    When method post
+    Then status 200
+    And match response contains { json: { myKey: "<data_Output>" } }
+
+Examples:
+| data_Input     |  data_Output  |
+| Buen dia       | Buen dia      |
+| Buenas tardes  | Buenas tardes |
+| Buenas noches  | Buenas noches |
+```
+
+### Caracteristicas
+
+- No se requiere conocimiento de Java.
+- Es compatible de forma nativa con Json y XML.
+- Los datos de los Scenarios se puede leer desde la seccion Examples del mismo Scenario, Archivo Json o XML.
+- Validaciones en una sola linea.
+- Validaciones de esquema Json para validar estructuras.
+- Motor JavaScript incorporado que permite crear biblioteas de funciones reutilizables.
+- Informe de pruebas integrado y de facil lectura
 
 
+## Empezando
 
+### Feature: Automatizar API's
 
+### Scenario: framework [Karate DSL](https://github.com/intuit/karate)
 
-
-## Feature: Automatizar API's
-
-## Scenario: framework [Karate DSL](https://github.com/intuit/karate)
-
-## Given Ejecuto comando bash para utilizar el arquetipo de Karate Maven
+### Given Ejecuto comando bash para utilizar el arquetipo de Karate Maven
 
 ```sh
 mvn archetype:generate \
@@ -69,7 +110,7 @@ mvn archetype:generate \
 -DartifactId=karate-api
 ```
 
-## And Configuro el reporte de cucumber
+### And Configuro el reporte de cucumber
 
 Cargo en el POM el cucumber-reporting
 Ingreso en el Maven central para verificar ultima version
@@ -86,7 +127,7 @@ Busco cucumber Reporting
 ```
 
 
-## And modifico el Runner en Java
+### And modifico el Runner en Java
 Descomento la linea para habilitar la creacion del Json para que lo use el reporte de cucumber
 ```java
 //.outputCucumberJson(true)
@@ -122,7 +163,7 @@ public static void generateReport(String karateOutputPath) {
 }
 ```
 
-## When corro el test 
+### When corro el test 
 ```sh
 sh:~/path/karate-api$ mvn test
 ```
@@ -168,7 +209,7 @@ scenarios:    2 | passed:     2 | failed: 0
 
 ![figra2](https://user-images.githubusercontent.com/55904664/133254422-6c3b9ad8-55bd-46e4-8dd9-abf380eb3387.png) 
 
-## Version Standalone
+### Version Standalone
 
 El único requisito previo es que Java (solo el entorno de tiempo de ejecución y no el JDK completo) debe estar instalado.
 
