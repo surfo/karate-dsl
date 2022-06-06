@@ -49,7 +49,7 @@ Feature: simple requests
 También se utilizan Scenarios Outline, son un tipo de escenario donde se especifican datos de entrada.
 
 ```cucumber
-Scenario outline: Extraer dinero con distintas claves de tarjeta.
+Scenario Outline: Extraer dinero con distintas claves de tarjeta.
     Given La tarjeta de crédito está habilitada
     And El saldo disponible en mi cuenta es positivo
     And El cajero tiene suficiente dinero
