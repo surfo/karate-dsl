@@ -23,14 +23,14 @@ Para describir los escenarios se utilizan las sentencias de Gherkin: Given, When
 ```cucumber
 Feature: Extracción de dinero
 
-Scenario: Como usuario existente y habilitado del cajero,
-quiero realizar una extracción de dinero
-Given Me autentique con una tarjeta habilitada
-And El saldo disponible en mi cuenta es positivo
-When Selecciono la opción de extracción
-And Ingreso la cantidad menor o igual al saldo disponible
-Then Obtengo el dinero
-And El dinero que obtuve se resta del saldo disponible de mi cuenta
+    Scenario: Como usuario existente y habilitado del cajero,
+              quiero realizar una extracción de dinero
+        Given Me autentique con una tarjeta habilitada
+        And El saldo disponible en mi cuenta es positivo
+        When Selecciono la opción de extracción
+        And Ingreso la cantidad menor o igual al saldo disponible
+        Then Obtengo el dinero
+        And El dinero que obtuve se resta del saldo disponible de mi cuenta
 ```
 
 Ejemplo de un feature Karate (con Json nativo)
@@ -38,23 +38,23 @@ Ejemplo de un feature Karate (con Json nativo)
 ```cucumber
 Feature: simple requests
 
-Scenario: hago un echo
-Given url 'https://httpbin.org/anything'
-And request { myKey: 'Hola' }
-When method post
-Then status 200
-And match response contains { json: { myKey: 'Hola' } }
+    Scenario: hago un echo
+        Given url 'https://httpbin.org/anything'
+        And request { myKey: 'Hola' }
+        When method post
+        Then status 200
+        And match response contains { json: { myKey: 'Hola' } }
 ```
 
 También se utilizan Scenarios Outline, son un tipo de escenario donde se especifican datos de entrada.
 
 ```cucumber
 Scenario outline: Extraer dinero con distintas claves de tarjeta.
-Given La tarjeta de crédito está habilitada
-And El saldo disponible en mi cuenta es positivo
-And El cajero tiene suficiente dinero
-When Introduzco la tarjeta en el cajero
-And Ingreso el <pin> de la tarjeta 
+    Given La tarjeta de crédito está habilitada
+    And El saldo disponible en mi cuenta es positivo
+    And El cajero tiene suficiente dinero
+    When Introduzco la tarjeta en el cajero
+    And Ingreso el <pin> de la tarjeta 
 
 Examples: 
 | pin  | 
@@ -66,11 +66,11 @@ Ejemplo de un Scenario Outline Karate
 
 ```cucumber
 Scenario Outline: simple sequence desde tabla
-Given url 'https://httpbin.org/anything'
-And request { myKey: "<data_Input>" }
-When method post
-Then status 200
-And match response contains { json: { myKey: "<data_Output>" } }
+    Given url 'https://httpbin.org/anything'
+    And request { myKey: "<data_Input>" }
+    When method post
+    Then status 200
+    And match response contains { json: { myKey: "<data_Output>" } }
 
 Examples:
 | data_Input    | data_Output   |
