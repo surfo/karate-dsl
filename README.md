@@ -34,6 +34,20 @@ Feature: Extracciòn de dinero
     And El dinero que obtuve se resta del saldo disponible de mi cuenta
 ```
 
+Ejemplo de un feature Karate
+
+```cucumber
+Feature: simple requests
+
+Scenario: hago un echo
+Given url 'https://httpbin.org/anything'
+And request { myKey: 'Hola' }
+When method post
+Then status 200
+And match response contains { json: { myKey: 'Hola' } }
+
+```
+
 
 
 
