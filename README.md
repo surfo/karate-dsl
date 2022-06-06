@@ -220,7 +220,7 @@ Buscar la última versión [aqui](https://github.com/karatelabs/karate/releases)
 ### Instalación
 Simplemente extraer el ZIP a cualquier directorio.
 
-### Instalar visual Studio Code [aqui](https://code.visualstudio.com/Download)
+### Descargar e instalar visual Studio Code [aqui](https://code.visualstudio.com/Download)
 
 Instalar los complementos Cucumber (Gherkin) full support y Karate Runner
 
