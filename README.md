@@ -15,7 +15,7 @@ Karate se apoya en la sintaxis Gherkin para escribir sus escenarios.
 
 Para describir los escenarios se utilizan las sentencias de Gherkin: Given, When, Then, And y But
 
-Patrón del lenguaje Gherkin
+#### Patrón del lenguaje Gherkin
 - Given 'dado': Cumplo una precondición
 - When 'cuando': Ejecuto una acción
 - Then 'entonces': Observo el resultado esperado, las validaciones a realizar
@@ -57,7 +57,7 @@ When Introduzco la tarjeta en el cajero
 And Ingreso el <pin> de la tarjeta 
 
 Examples: 
-| pin | 
+| pin  | 
 | 1234 | 
 | 9876 | 
 ```
@@ -73,8 +73,8 @@ Then status 200
 And match response contains { json: { myKey: "<data_Output>" } }
 
 Examples:
-| data_Input | data_Output |
-| Buen dia | Buen dia |
+| data_Input    | data_Output   |
+| Buen dia      | Buen dia      |
 | Buenas tardes | Buenas tardes |
 | Buenas noches | Buenas noches |
 ```
