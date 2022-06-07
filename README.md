@@ -89,6 +89,59 @@ Examples:
 - Motor JavaScript incorporado que permite crear bibliotecas de funciones reutilizables.
 - Informe de pruebas integrado y de fácil lectura
 
+### Validaciones Java vs Json
+
+Java
+```java
+Cat billie = new Cat();
+billie.SetName("Billie");
+Cat bob = new Cat();
+bob.setId(23);
+bob.SetName("Bob");
+billie.addKitten(bob);
+Cat wild = new Cat();
+wild.setId(42);
+wild.setName("Wild");
+billie.addKitten(wild);
+
+
+private static boolean hasKitten(Cat cat, Cat Kitten){
+    if (cat.getKittens() != null) {
+        for (Cat kit : cat.getkittens()) {
+            if (kit.getId()) == null) {
+                if (kit.getName() == null) {
+                    if (kitten.getName() == null) {
+                        return true;
+                    }
+                } else if (kit.getName().equals(kitten.getName())) {
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
+}
+```
+Karate Json
+```json
+* def billie = 
+"""
+{
+    name: 'Billie',
+    kittens: [
+        { id: 23, name: 'Bob' },
+        { id: 42, name: 'Wild' }
+    ]
+}
+"""
+
+* match cat.kittens[*].id == [23,42]
+* match cat.kittens[*].id contains 23
+* match each cat.kittens == { id: '#notnull, name: '#regex [A-Z][a-z]+'}
+```
+
+
+
 ## Empezando
 
 ### Feature: Automatizar API's
