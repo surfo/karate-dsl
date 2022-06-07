@@ -141,6 +141,25 @@ Scenario: Pruebo Json
 * match each cat.kittens == { id: '#notnull', name: '#regex [A-Z][a-z]+'}
 ```
 
+Karate SOAP XML
+```cucumber
+Scenario: Pruebo XML
+    Given def foo = 
+    """
+    <records>
+        <record index="1">a</record>
+        <record index="2">b</record>
+        <record index="3" foo="bar">c</record>
+    </records>
+    """
+# json Style
+* assert foo.records.record.length == 3
+
+# xpath assertions
+* match foo count(/records//record) == 3
+* match foo //record[@index=2] == 'b'
+* match foo //record[@foo='bar'] == 'c'
+```
 
 
 ## Empezando
