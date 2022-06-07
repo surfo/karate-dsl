@@ -123,21 +123,22 @@ private static boolean hasKitten(Cat cat, Cat Kitten){
 }
 ```
 Karate Json
-```json
-* def billie = 
-"""
-{
-    name: 'Billie',
-    kittens: [
-        { id: 23, name: 'Bob' },
-        { id: 42, name: 'Wild' }
-    ]
-}
-"""
+```cucumber
+Scenario: Pruebo Json
+    Given def cat = 
+    """
+        {
+            name: 'Billie',
+            kittens: [
+                {id: 23, name: 'Bob'},
+                {id: 42, name: 'Wild'}
+            ]
+        }
+    """
 
 * match cat.kittens[*].id == [23,42]
 * match cat.kittens[*].id contains 23
-* match each cat.kittens == { id: '#notnull, name: '#regex [A-Z][a-z]+'}
+* match each cat.kittens == { id: '#notnull', name: '#regex [A-Z][a-z]+'}
 ```
 
 
