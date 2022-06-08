@@ -67,6 +67,7 @@ Ejemplo de un Scenario Outline Karate
 ```cucumber
 Scenario Outline: simple sequence desde tabla
     Given url 'https://httpbin.org/anything'
+    And configure ssl = true
     And request { myKey: "<data_Input>" }
     When method post
     Then status 200
