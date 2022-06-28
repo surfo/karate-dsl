@@ -40,6 +40,7 @@ Feature: simple requests
 
     Scenario: hago un echo
         Given url 'https://httpbin.org/anything'
+        * configure ssl = true
         And request { myKey: 'Hola' }
         When method post
         Then status 200
