@@ -172,13 +172,19 @@ Scenario: Pruebo XML
 
 ### Given Ejecuto comando bash para utilizar el arquetipo de Karate Maven
 
+### Para Linux
 ```sh
 mvn archetype:generate \
 -DarchetypeGroupId=com.intuit.karate \
 -DarchetypeArtifactId=karate-archetype \
--DarchetypeVersion=1.1.0 \
--DgroupId=com.template \
--DartifactId=karate-api
+-DarchetypeVersion=1.2.0 \
+-DgroupId=com.mycompany \
+-DartifactId=myproject
+```
+
+### Para Windows
+```sh
+mvn archetype:generate -DarchetypeGroupId=com.intuit.karate -DarchetypeArtifactId=karate-archetype -DarchetypeVersion=1.2.0 -DgroupId=com.mycompany -DartifactId=myproject
 ```
 
 ### And Configuro el reporte de cucumber
@@ -297,7 +303,10 @@ Simplemente extraer el ZIP a cualquier directorio.
 
 ### Descargar e instalar visual Studio Code [aqui](https://code.visualstudio.com/Download)
 
-Instalar los plugins de Cucumber (Gherkin) full support y Karate Runner
+Instalar los plugins de:
+- Cucumber (Gherkin) full support
+- Karate Runner
+- Java Extension Pack
 
 
 ### Correr un script
