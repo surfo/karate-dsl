@@ -51,7 +51,7 @@ También se utilizan Scenarios Outline, son un tipo de escenario donde se especi
 
 ```cucumber
 Scenario Outline: Extraer dinero con distintas claves de tarjeta.
-    Given La tarjeta de crédito está habilitada
+    Given La tarjeta de debito está habilitada
     And El saldo disponible en mi cuenta es positivo
     And El cajero tiene suficiente dinero
     When Introduzco la tarjeta en el cajero
