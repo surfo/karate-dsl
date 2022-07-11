@@ -244,6 +244,11 @@ public static void generateReport(String karateOutputPath) {
 ```sh
 sh:~/path/karate-api$ mvn test
 ```
+ó especificando un entorno
+
+```sh
+sh:~/path/karate-api$ mvn test -Dkarate.env=qa
+```
 
 ```sh
 [INFO] Scanning for projects...
