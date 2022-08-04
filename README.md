@@ -319,20 +319,36 @@ Instalar los plugins de:
 Puede ejecutar comandos desde el terminal o la consola después de cambiar a la raíz de la carpeta creada cuando extrajo el archivo ZIP. 
 
 Ejecutar todos los features que se encuentran en la carpeta test
+
 ```sh
 java -jar karate.jar .
 ```
 
-Ejecutar todo menos el tag
+Ejecutar todo menos el tag @ignore
+
+```sh
 java -jar karate.jar -t ~@ignore .
+```
+
 
 Ejecutar un tag especifico
+
+```sh
 java -jar karate.jar -t @tag .
-
-
+```
 
 Ejecutar mas de un tag
+
+```sh
 java -jar karate.jar -t @regression,@test .
+```
+
 
 Ejecutar en un ambiente especifico
+
+```sh
 java -jar karate.jar -e desa .
+```
+
+
+
