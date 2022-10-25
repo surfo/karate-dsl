@@ -209,12 +209,6 @@ Descomento la linea para habilitar la creacion del Json para que lo use el repor
 ```java
 //.outputCucumberJson(true)
 ```
-Agrego debajo
-
-```java
-.karateEnv("Reporte Nombre")
-```
-
 Importaciòn
 
 ```java
@@ -234,12 +228,58 @@ public static void generateReport(String karateOutputPath) {
     Collection<File> jsonFiles = FileUtils.listFiles(new File(karateOutputPath), new String[] {"json"}, true);
     List<String> jsonPaths = new ArrayList<>(jsonFiles.size());
     jsonFiles.forEach(file -> jsonPaths.add(file.getAbsolutePath()));
-    Configuration config = new Configuration(new File("target"), "Reporte Nomber");
+    Configuration config = new Configuration(new File("target"), "Reporte Nombre");
     ReportBuilder reportBuilder = new ReportBuilder(jsonPaths, config);
     reportBuilder.generateReports();
 }
 ```
 
+Agrego debajo del runner el llamado al metodo
+
+```java
+generateReport(results.getReportDir());
+```
+
+Quedando el runner final
+
+```java
+import com.intuit.karate.Results;
+import com.intuit.karate.Runner;
+import static org.junit.jupiter.api.Assertions.*;
+
+import net.masterthought.cucumber.Configuration;
+import net.masterthought.cucumber.ReportBuilder;
+import org.apache.commons.io.FileUtils;
+import org.junit.jupiter.api.Test;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+class TestRunner {
+
+    @Test
+    void testParallel() {
+        Results results = Runner.path("classpath:API")
+                .outputCucumberJson(true)
+                .parallel(5);
+        assertEquals(0, results.getFailCount(), results.getErrorMessages());
+
+        generateReport(results.getReportDir());
+    }
+
+    public static void generateReport(String karateOutputPath) {
+        Collection<File> jsonFiles = FileUtils.listFiles(new File(karateOutputPath), new String[] {"json"}, true);
+        List<String> jsonPaths = new ArrayList<>(jsonFiles.size());
+        jsonFiles.forEach(file -> jsonPaths.add(file.getAbsolutePath()));
+        Configuration config = new Configuration(new File("target"), "Reporte Nombre");
+        ReportBuilder reportBuilder = new ReportBuilder(jsonPaths, config);
+        reportBuilder.generateReports();
+    }
+}
+
+```
 ### When corro el test 
 ```sh
 sh:~/path/karate-api$ mvn test
